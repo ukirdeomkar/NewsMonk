@@ -143,7 +143,7 @@ export class News extends Component {
       author: "The Tribune India",
       title:
         "Long traffic jam on Chandigarh-Manali highway as road is blocked following landslides - The Tribune India",
-      description: null,
+      description: "gtkgtkgtk",
       url: "https://www.tribuneindia.com/news/himachal/long-traffic-jam-on-chandigarh-manali-highway-as-road-is-blocked-following-landslides-520394",
       urlToImage: null,
       publishedAt: "2023-06-26T07:13:00Z",
@@ -288,20 +288,14 @@ export class News extends Component {
         <div className="container my-3 ">
           <h2>Top Headlines</h2>
           <div className="row">
-            <div className="col-md-4">
-              <NewsItem
-                title="1"
-                description="describeee"
-                imgUrl="https://beebom.com/wp-content/uploads/2023/06/Google-Pixel-7-Pro-in-Green-color-option-showcased-with-a-gray-background.jpg"
-                newsUrl="todo"
-              />
-            </div>
-            <div className="col-md-4">
-              <NewsItem />
-            </div>
-            <div className="col-md-4">
-              <NewsItem />
-            </div>
+            {this.state.articles.map((element)=>{
+              return <div className="col-md-4" key={element.url}>
+                <NewsItem title={element.title.slice(0,40)} description={element.description.slice(0,66)} imgUrl={element.urlToImage} newsUrl={element.url} />
+              </div>
+              
+            })}
+
+
           </div>
         </div>
       </>
